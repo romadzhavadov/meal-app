@@ -10,7 +10,9 @@ const Favorites = () => {
   const ingredientsMap = new Map();
   favorites.forEach((meal) => {
     for (let i = 1; i <= 20; i++) {
+      // @ts-ignore
       const ingredient = meal[`strIngredient${i}`];
+      // @ts-ignore
       const measure = meal[`strMeasure${i}`];
       if (ingredient) {
         const key = ingredient.toLowerCase();
@@ -45,7 +47,7 @@ const Favorites = () => {
 
           <Box mt={6}>
             <Text fontSize="xl" fontWeight="bold" mb={2}>Ingredients List</Text>
-            <VStack align="start" spacing={1}>
+            <VStack align="start" gap={1}>
               {[...ingredientsMap.entries()].map(([ingredient, measure]) => (
                 <Text key={ingredient}>{ingredient}: {measure}</Text>
               ))}

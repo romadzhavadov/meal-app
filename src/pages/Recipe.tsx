@@ -12,6 +12,7 @@ const Recipe = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
+    // @ts-ignore
     dispatch(fetchRecipe(id))
   }, [dispatch, id]);
 
@@ -52,7 +53,7 @@ if (!recipe)
         {recipe.strMeal}
       </Heading>
       <Image src={recipe.strMealThumb} alt={recipe.strMeal} borderRadius="md" />
-      <VStack align="start" mt={4} spacing={3}>
+      <VStack align="start" mt={4} gap={3}>
         <Text fontWeight="bold">Category: {recipe.strCategory}</Text>
         <Text fontWeight="bold">Area: {recipe.strArea}</Text>
         <Text mt={2}>{recipe.strInstructions}</Text>
